@@ -7,16 +7,29 @@ const finalMessage = document.getElementById('final-message');
 
 const figureParts = document.querySelectorAll('.figure-part');
 
-const words = ['application', 'programming', 'interface', 'wizard'];
+let words = ['application', 'programming', 'interface', 'wizard'];
 
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+let selectedWord = 'application';
 
 const correctLetters = [];
 const wrongLetters = [];
 
+//fetch words from source
+function fetchWords() {
+    let url = 'https://random-word-api.herokuapp.com/word?number=10';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            words = data;
+            selectedWord = words[Math.floor(Math.random() * words.length)]
+            console.log(selectedWord)
+        })
+}
+
+
 // Show hidden word
 function displayWord() {
-  wordEl.innerHTML = `
+    wordEl.innerHTML = `
     ${selectedWord
       .split('')
       .map(
