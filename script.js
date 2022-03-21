@@ -116,9 +116,10 @@ playAgainBtn.addEventListener('click', () => {
   //  Empty arrays
   correctLetters.splice(0);
   wrongLetters.splice(0);
-
+  alert('Words was' + selectedWord);
   selectedWord = words[Math.floor(Math.random() * words.length)];
-  alert('Words was  ' + selectedWord);
+  console.log(selectedWord)
+ 
 
   displayWord();
 
