@@ -87,8 +87,9 @@ function showNotification() {
 
 // Keydown letter press
 window.addEventListener('keydown', e => {
-  // console.log(e.keyCode);
-  if (e.keyCode >= 65 && e.keyCode <= 90) {
+  // use match to check if the key pressed is a letter
+  //keyCode is deprecated
+  if (e.key.match(/^[a-zA-Z]$/)) {
     const letter = e.key;
 
     if (selectedWord.includes(letter)) {
